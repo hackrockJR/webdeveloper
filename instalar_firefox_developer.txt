@@ -1,0 +1,42 @@
+
+
+chose other install way
+
+    Open Terminal Ctrl+Alt+T Download Firefox Developer Edition tar file
+
+    wget https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=linux64&lang=en-US
+
+    Copy tar file to opt sudo cp -rp firefox-35.0a2.en-US.linux-x86_64.tar.bz2
+
+    Open opt folder (cd /opt/) and untar file sudo tar xjf firefox-35.0a2.en-US.linux-x86_64.tar.bz2
+
+    Delete tar file sudo rm -rf firefox-35.0a2.en-US.linux-x86_64.tar.bz2
+
+    Now create new icon for Firefox Developer Edition browser. sudo chown -R $USER /opt/firefox
+
+    Open nano ~/.bashrc
+
+    Go to the end of file and paste this line: export PATH=/opt/firefox/firefox:$PATH
+
+    The last thing we need to do is to create launcher for Unity. sudo nano /usr/share/applications/FirefoxDeveloperEdition.desktop
+
+    Paste the lines below into it:
+
+    [Desktop Entry]
+    Version=1.0
+    Name=Firefox Developer Edition
+    GenericName=Web Browser
+    Exec=/opt/firefox/firefox
+    Terminal=false
+    Icon=/opt/firefox/browser/icons/mozicon128.png
+    Type=Application
+    Categories=Network;WebBrowser;Favorites;
+    MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+    X-Ayatana-Desktop-Shortcuts=NewWindow;NewIncognito
+
+    Copy icon to Desktop cp -rp /usr/share/applications/FirefoxDeveloperEdition.desktop /home/$USER/Desktop
+
+    Do run enable chmod +x FirefoxDeveloperEdition.desktop
+
+    Go Desktop and click Firefox Developer Edition smile
+
